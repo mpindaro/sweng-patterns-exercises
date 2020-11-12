@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="it.unimi.di.prog2.lab09.view.IntegrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-08T11:26:35" hostname="c18delt-050-10.linux.unicloudidattica.local" time="5.02">
+  <properties/>
+  <testcase name="testWithThreeTextField" classname="it.unimi.di.prog2.lab09.view.IntegrationTest" time="5.02"/>
+  <system-out><![CDATA[Milano 14:57
+Milano 01:57
+Milano 01:59
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

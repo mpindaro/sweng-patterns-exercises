@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id "org.openjfx.javafxplugin" version "0.0.8"
+    id 'org.unbroken-dome.test-sets' version '2.2.1'
+    id 'application'
+}
+
+group 'it.unimi.di.prog2'
+version '1.0-SNAPSHOT'
+
+application.mainClassName = 'it.unimi.di.prog2.esame.Main'
+
+javafx {
+    version = '13'
+    modules = [ 'javafx.controls']
+}
+
+repositories {
+    jcenter()
+}
+
+testSets {
+  integrationTest
+}
+
+dependencies {
+    testCompile "junit:junit:4.13-beta-3"
+    testCompile "org.testfx:testfx-junit:4.0.15-alpha"
+    testCompile "org.testfx:testfx-core:4.0.15-alpha"
+    testCompile 'com.github.stefanbirkner:system-rules:1.16.0'
+    testCompile 'org.mockito:mockito-core:2.+'
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << '-Xlint:unchecked'
+}
+
+
+
+check.dependsOn integrationTest
+integrationTest.mustRunAfter test

@@ -1,0 +1,40 @@
+plugins {
+    id "org.openjfx.javafxplugin" version "0.0.8"
+    id "application"
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = '13'
+    modules = [ 'javafx.controls']
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
+
+}
+
+mainClassName = 'it.unimi.di.prog2.rubamazzetto.Rubamazzetto'
+
+run {
+    enableAssertions = true
+    standardInput = System.in
+
+}
+
+
+
+test {
+    testLogging {
+        events 'PASSED', 'FAILED'
+    }
+}
+
+javadoc {
+    options.tags = ['pre:a:Preconditions:', 'post:a:Postconditions:']
+    options.addStringOption('Xdoclint:none','-quiet')
+}

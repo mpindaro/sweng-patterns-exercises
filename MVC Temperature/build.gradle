@@ -1,0 +1,33 @@
+plugins {
+	id 'java'
+	id 'application'
+	id 'org.openjfx.javafxplugin' version '0.0.8'
+	id 'org.unbroken-dome.test-sets' version '2.1.1'
+}
+
+
+repositories {
+	jcenter()
+}
+
+testSets {
+	integrationTest
+}
+
+dependencies {
+	testCompile "junit:junit:4.13-beta-3"
+	testCompile "org.testfx:testfx-junit:4.0.15-alpha"
+	testCompile "org.testfx:testfx-core:4.0.15-alpha"
+	testCompile 'com.github.stefanbirkner:system-rules:1.16.0'
+	testCompile 'org.mockito:mockito-core:2.+'
+}
+
+check.dependsOn integrationTest
+integrationTest.mustRunAfter test
+
+application.mainClassName = "it.unimi.di.prog2.lab8.Main"
+
+javafx {
+	version = '13'
+	modules = [ 'javafx.controls' ]
+}

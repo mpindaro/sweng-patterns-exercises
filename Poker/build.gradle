@@ -1,0 +1,33 @@
+plugins {
+    id "org.openjfx.javafxplugin" version "0.0.8"
+    id "application"
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = '13'
+    modules = [ 'javafx.controls']
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.assertj:assertj-core:3.13.2'
+}
+
+application {
+    mainClassName = 'it.unimi.di.prog2.poker.Table'
+}
+
+test {
+    testLogging {
+        events 'PASSED', 'FAILED'
+    }
+}
+
+javadoc {
+    options.tags = ['pre:a:Preconditions:', 'post:a:Postconditions:']
+    options.addStringOption('Xdoclint:none','-quiet')
+}
